@@ -16,6 +16,7 @@ name=""
 
 @app.route("/",methods=["GET","POST"])
 def index():
+    global name_flag
     name_flag = 0
     return(render_template("index.html"))
 
