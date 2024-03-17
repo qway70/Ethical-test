@@ -11,11 +11,12 @@ import sqlite3
 
 app = Flask(__name__)
 
-name_flag = 0
+
 name=""
 
 @app.route("/",methods=["GET","POST"])
 def index():
+    name_flag = 0
     return(render_template("index.html"))
 
 @app.route("/main",methods=["GET","POST"])
