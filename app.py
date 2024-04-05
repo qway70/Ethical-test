@@ -6,6 +6,9 @@
 from flask import Flask, request, render_template, Markup
 import sqlite3
 import datetime
+import replicate
+import os
+os.environ['REPLICATE_API_TOKEN']= 'r8_7CcW8627k7lZCt22wTtrejkLMjoGOov2JaUet'
 
 app = Flask(__name__)
 
@@ -74,9 +77,25 @@ def food_exp():
 
 @app.route("/prediction",methods=["GET","POST"])
 def prediction():
+    print("prediction")
     income = float(request.form.get("income"))
+    print(income)
     return(render_template("prediction.html",r=(income *0.485)+147))
 
+@app.route("/music",methods=["GET","POST"])
+def music():
+    return(render_template("music.html"))
+
+@app.route("/music_generator",methods=["GET","POST"])
+def music_generator():
+    q = request.form.get('q')
+    r = replicate.run(    "meta/musicgen:7be0f12c54a8d033a0fbd14418c9af98962da9a86f5ff7811f9b3423a1f0b7d7",
+        input={
+            "prompt": q,
+            "duration": 5
+    }
+)
+    return(render_template("music_generator.html",r=r))
 
 @app.route("/end",methods=["GET","POST"])
 def end():   
@@ -84,7 +103,6 @@ def end():
 
 if __name__ == "__main__":
     app.run()
-
 # In[ ]:
 
 
