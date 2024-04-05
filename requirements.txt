@@ -2,4 +2,3 @@ flask == 2.3.1
 gunicorn
 pysqlite3
 replicate
-os
