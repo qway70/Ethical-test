@@ -2,7 +2,6 @@
 # coding: utf-8
 
 # In[ ]:
-pip install replicate
 from flask import Flask, request, render_template, Markup
 import sqlite3
 import datetime
