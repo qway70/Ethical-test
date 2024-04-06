@@ -7,7 +7,7 @@ import sqlite3
 import datetime
 import replicate
 import os
-os.environ['REPLICATE_API_TOKEN']= 'r8_7CcW8627k7lZCt22wTtrejkLMjoGOov2JaUet'
+os.environ['REPLICATE_API_TOKEN']= 'r8_df1jzcqNhiIkuaVAjcg5JwC2SeXPsdP1m01mr'
 
 app = Flask(__name__)
 
